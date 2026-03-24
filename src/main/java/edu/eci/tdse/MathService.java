@@ -31,11 +31,14 @@ public class MathService {
     }
 
     private static int pellSequenceForN(int n){
-        LOGGER.info("Making pell sequence for value: {}", n);
         if (n < 0) {
             LOGGER.info("This is an invalid number for a pell sequence");
         }
-        if ( n > 2) {
+        if (n == 0 || n == 1){
+            return n;
+        }
+
+        if ( n >= 2) {
             int pellSeq = 2 * pellSequenceForN(n - 1) + pellSequenceForN(n - 2);
             return pellSeq;
         }
