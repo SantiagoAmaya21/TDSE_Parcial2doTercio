@@ -22,8 +22,12 @@ public class MathService {
         ArrayList<Integer> pellList = new ArrayList<>();
         if ( n >= 2) {
             for (int i = 0; i <= n; i++){
-                int pellSeq = 2 * pellSequenceForN(i - 1) + pellSequenceForN(i - 2);
-                pellList.add(pellSeq);
+                if (i == 0 || i == 1){
+                    pellList.add(i);
+                } else {
+                    int pellSeq = 2 * pellSequenceForN(i - 1) + pellSequenceForN(i - 2);
+                    pellList.add(pellSeq);
+                }
             }
             return pellList;
         }
